@@ -1,32 +1,82 @@
-# Exp.No:38  
-## Deque - DELETION
+AIM
 
----
+To implement a Circular Queue using Python with operations such as enqueue, dequeue, and display, and to understand the behavior of the circular queue data structure.
 
-### AIM  
-To write a Python program to delete elements at FRONT END of deque using a collection built-in function.
+ALGORITHM
 
----
+Start
 
-### ALGORITHM  
+Define a class queue with:
 
-1. Import the `deque` class from the `collections` module.  
-2. Create an empty deque.  
-3. Define how many elements to input (e.g., 3 inputs as in the example).  
-4. Loop through the range of input size:  
-   - Read an integer from the user.  
-   - Append the integer to the deque.  
-5. Remove the front element of the deque using `popleft()`.  
-6. Print the final deque after deletion.  
+A constructor to initialize queue, front, rear, and limit.
 
----
+isempty() method to check if the queue is empty.
 
-### PROGRAM  
+enqueue(item) method to insert elements if the queue is not full.
 
+dequeue() method to delete elements if the queue is not empty.
+
+display() method to show the current elements in the queue.
+
+Create a queue object by getting the size from the user.
+
+Accept input elements from the user and insert them using enqueue().
+
+Call display() to print the current queue.
+
+Call dequeue() to remove an element and display the queue.
+
+End
+
+PROGRAM
 ```
+class queue:
+    def __init__(self,limit):
+        self.queue=[]
+        self.rear=0
+        self.front=0
+        self.limit=limit
+    def isempty(self):
+        if len(self.queue)==0:
+            return True
+        else:
+            return False
+    def enqueue(self,item):
+        if len(self.queue)==self.limit:
+            print("Queue is full")
+        else:
+            self.queue.insert(self.rear,item)
+            self.rear+=1
+        
+        
+        
+        
+    def dequeue(self):
+        if self.front==self.rear:
+            print("Queue is underflow")
+        else:
+            self.queue.pop(self.front)
+            self.front+=1
+            print(self.queue)
+        
+        
+        
+    def display(self):
+        print(self.queue)
+        
+a=int(input())
+q=queue(a)
+q.enqueue(int(input()))
+q.enqueue(int(input()))
+q.enqueue(int(input()))
+q.display()
+q.dequeue()
 ```
+OUTPUT
 
-### OUTPUT
+![image](https://github.com/user-attachments/assets/a4636d95-d4a3-4e65-ae31-08ece8ec3f6d)
 
 
-### RESULT
+RESULT
+
+Thus the python program is initialised and executed successfully.
